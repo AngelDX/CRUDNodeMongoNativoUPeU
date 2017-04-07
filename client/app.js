@@ -20,7 +20,7 @@ class Crud{
 		form_data.append('nombre',$('#nombre').val())
 		form_data.append('edad',$('#edad').val())
 		$.ajax({
-			url: '../server/insertRegistro',
+			url: '../server/agregar',
 			dataType:'json',
 			processData: false,
 			contentType: false,

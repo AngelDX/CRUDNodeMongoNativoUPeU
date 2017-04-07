@@ -1,13 +1,19 @@
-var MongoClient = require('mongodb').MongoClient
+var http=require('http');
+var path=require('path');
+var express=require('express');
+var bodyparser=require('body-parser');
+var rounting=require('./rutas.js');
 
-var url = "mongodb://localhost/colegio"
+const app=express();
+server=http.createServer(app);
 
-var Operaciones = require('./crud.js')
+app.use(express.static('../client'));
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:true}));
+app.use('/server',rounting);
 
-MongoClient.connect(url, function(err, db){
-	if (err)console.log(err)
-	console.log("Connection successful")
-	Operaciones.requestAndUpdating(db, (error, result) =>{
-		if(error)console.log("Error trying to insert: " + error)
-	})
-})
+server.listen(8090,function(){
+	console.log('Servidor esta levantado en el puerto 8090');
+});
+
+

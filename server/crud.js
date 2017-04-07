@@ -2,9 +2,9 @@ module.exports.insertRegistro = function(db, callback){
 	let collection = db.collection("alumnos")
 
 	collection.insertMany([
-		{nombre: "David Haller", edad: 10},
-		{nombre: "Jack Wayne", edad: 40},
-		{nombre: "Cyndi", edad: 18}
+		{nombre: "Angel Condori", edad: 10},
+		{nombre: "Juan Perez", edad: 40},
+		{nombre: "Otro nombre", edad: 18}
 		], (error, result) => {
 			console.log("Insert result: " + result.toString())
 		}
